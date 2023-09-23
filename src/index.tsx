@@ -5,15 +5,32 @@ import "./assets/styles/tailwind.css";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import MainLayout from './layouts/MainLayout';
+import { ConfigProvider } from 'antd';
+
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <MainLayout>
-      <App />
-    </MainLayout>
+    <ConfigProvider
+      theme={{
+      token: {
+        /* here is your global tokens */
+        colorTextBase:'white',
+        colorBgContainer:'#171d22',
+        colorBgElevated: '#171d22',
+      },
+      }}
+    >
+      <MainLayout>
+        <BrowserRouter basename="/">
+          <App /> 
+        </BrowserRouter>
+      </MainLayout>
+    </ConfigProvider>
   </React.StrictMode>
 );
 

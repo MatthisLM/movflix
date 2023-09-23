@@ -1,25 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import  TvShow from './pages/TvShow';
+
+
+// const routes: Array<RouteProps & { Children: FunctionComponent }> = [
+//   {
+//       path: getRawRoute(RoutePathName.tvShow),
+//       element: TvShow,
+//   },
+// ];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path='/' element={<TvShow/>}></Route>
+      <Route path='/tv-show' element={<TvShow/>}></Route>
+      {/* <Route
+         
+          path={getRawRoute(RoutePathName.tvShow)}
+          // {...props}
+      >
+          <TvShow />
+      </Route> */}
+    {/* {routes.map(({ Children, ...props }) => (
+      <Route
+          key={
+              Array.isArray(props.path)
+                  ? props.path.join("")
+                  : (props.path as string | undefined)
+          }
+          path={props.path}
+          // {...props}
+      >
+          <Children />
+      </Route>
+  ))} */}
+  </Routes>
   );
 }
 
